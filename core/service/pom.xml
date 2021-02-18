@@ -10,10 +10,11 @@
   <artifactId>service</artifactId>
   <name>service</name>
   <dependencies>  
-  <dependency>
+      <dependency>
         <groupId>com.spring</groupId>
         <artifactId>dao</artifactId>
         <version>${project.version}</version>
       </dependency>
   </dependencies>
+  
 </project>

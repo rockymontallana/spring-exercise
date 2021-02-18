@@ -1,4 +1,4 @@
-package com.spring;
+package com.spring.app.model;
 
 import java.util.*;
 import java.text.*;
@@ -16,18 +16,20 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "person")
-public class Person {
+public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int personID;
+    private long personId;
     
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String lastName;
     
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
     
     @Column(name = "middle_name")
@@ -55,7 +57,7 @@ public class Person {
     private Date birthday;
     
     @Column(name = "grade_weighted_average")
-    private double gradeWeightedAverage;
+    private double gradeWeightedAverage; //eto 
     
     @Column(name = "date_hired")
     private Date dateHired;
@@ -89,8 +91,8 @@ public class Person {
     }
     
     //Setters
-    public void setPersonID(int personID) {
-        this.personID = personID;
+    public void setPersonID(long personId) {
+        this.personId = personId;
     }
     
     public void setLastName(String lastName) {
@@ -154,8 +156,8 @@ public class Person {
 //    }
     
     //Getters
-    public int getPersonID() {
-        return personID;
+    public long getPersonID() {
+        return personId;
     }
     
     public String getLastName() {

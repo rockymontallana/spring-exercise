@@ -10,6 +10,23 @@
   <artifactId>app</artifactId>
   <name>app</name>
   
+  <build>
+<!--     <pluginManagement>-->
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${org.springframework-version}</version>
+				<configuration>
+                    <skip>false</skip>
+				    <mainClass>com/spring/app/PersonApp</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+<!--	</pluginManagement>-->
+  </build>
+  
+  
   <dependencies>
      <dependency>
         <groupId>com.spring</groupId>
@@ -22,4 +39,7 @@
         <version>${project.version}</version>
       </dependency>
   </dependencies>
+    
+    
 </project>
+
