@@ -69,8 +69,9 @@ public class Person implements Serializable {
 	@JoinColumn(name="person_id", referencedColumnName="personId")
     List<Contact> contacts = new ArrayList<>();
     
-//    private List<Contact> contacts = new ArrayList<>();
-//    private List<Role> roles = new ArrayList<>();
+    @ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@JoinTable(name="person_role", joinColumns = {@JoinColumn(name="person_id")}, inverseJoinColumns={@JoinColumn(name="role_id")})
+	private List<Role> roles = new ArrayList<>();
     
     public Person() {}
     
@@ -155,9 +156,9 @@ public class Person implements Serializable {
         this.contacts = contacts;
     }
    
-//    public void setRoles(List<Role> roles) {
-//        this.roles = roles;
-//    }
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
     
     //Getters
     public long getPersonID() {
@@ -219,10 +220,10 @@ public class Person implements Serializable {
     public List<Contact> getContacts() {
         return contacts;
     }
-//    
-//    public List<Role> getRoles() {
-//        return roles;
-//    }
+    
+    public List<Role> getRoles() {
+        return roles;
+    }
     
     
 }
