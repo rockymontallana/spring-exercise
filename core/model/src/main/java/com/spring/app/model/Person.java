@@ -23,7 +23,7 @@ import java.io.Serializable;
 @Table(name = "person")
 public class Person implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long personId;
     
     @Column(name = "last_name")
@@ -64,6 +64,10 @@ public class Person implements Serializable {
     
     @Column(name = "is_currently_employed")
     private boolean isCurrentlyEmployed;
+    
+    @OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="person_id", referencedColumnName="personId")
+    List<Contact> contacts = new ArrayList<>();
     
 //    private List<Contact> contacts = new ArrayList<>();
 //    private List<Role> roles = new ArrayList<>();
@@ -147,10 +151,10 @@ public class Person implements Serializable {
         this.isCurrentlyEmployed = isCurrentlyEmployed;
     }
     
-//    public void setContacts(List<Contact> contacts) {
-//        this.contacts = contacts;
-//    }
-//    
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
+    }
+   
 //    public void setRoles(List<Role> roles) {
 //        this.roles = roles;
 //    }
@@ -212,9 +216,9 @@ public class Person implements Serializable {
         return isCurrentlyEmployed;
     }
     
-//    public List<Contact> getContacts() {
-//        return contacts;
-//    }
+    public List<Contact> getContacts() {
+        return contacts;
+    }
 //    
 //    public List<Role> getRoles() {
 //        return roles;

@@ -21,7 +21,6 @@
 		<org.springframework-version>2.4.2</org.springframework-version>
 	</properties>
     
-<!--	<dependencyManagement>-->
 		<dependencies>
             <dependency>
                 <groupId>javax.persistence</groupId>
@@ -53,10 +52,8 @@
                 <scope>test</scope>
             </dependency>
         </dependencies>
-<!--	</dependencyManagement>-->
     
     <build>
-<!--	<pluginManagement>-->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -67,7 +64,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-<!--	</pluginManagement>-->
 	</build>
 	
 	<modules>
